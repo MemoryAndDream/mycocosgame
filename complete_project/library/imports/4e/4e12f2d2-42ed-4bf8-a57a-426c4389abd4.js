@@ -14,6 +14,10 @@ cc.Class({
             default: null,
             type: cc.Prefab
         },
+        testPrefab: {
+            default: null,
+            type: cc.Prefab
+        },
         // 星星产生后消失时间的随机范围
         maxStarDuration: 0,
         minStarDuration: 0,
@@ -54,6 +58,7 @@ cc.Class({
         this.starDuration = 0;
         // 生成一个新的星星
         this.spawnNewStar();
+        this.spawnNewTestPrefeb();
         // 初始化计分
         this.score = 0;
         this.setInputControl();
@@ -74,9 +79,29 @@ cc.Class({
     },
 
     getNewStarPosition: function getNewStarPosition() {
+
         var randX = 0;
         // 根据地平面位置和主角跳跃高度，随机得到一个星星的 y 坐标
         var randY = this.groundY + cc.random0To1() * this.player.getComponent('Player').jumpHeight + 50;
+        // 根据屏幕宽度，随机得到一个星星 x 坐标
+        var maxX = this.node.width / 2;
+        randX = cc.randomMinus1To1() * maxX;
+        // 返回星星坐标
+        return cc.p(randX, randY);
+    },
+    spawnNewTestPrefeb: function spawnNewTestPrefeb() {
+        console.log('testPrefeb');
+        // 使用给定的模板在场景中生成一个新节点
+        var newTestPrefab = cc.instantiate(this.testPrefab);
+        // 将新增的节点添加到 Canvas 节点下面
+        this.node.addChild(newTestPrefab);
+        // 为星星设置一个随机位置
+        newTestPrefab.setPosition(this.getNewTestPrefebPosition());
+    },
+    getNewTestPrefebPosition: function getNewTestPrefebPosition() {
+        var randX = 0;
+        // 根据地平面位置和主角跳跃高度，随机得到一个星星的 y 坐标
+        var randY = this.groundY + cc.random0To1() * this.player.getComponent('Player').jumpHeight + 20;
         // 根据屏幕宽度，随机得到一个星星 x 坐标
         var maxX = this.node.width / 2;
         randX = cc.randomMinus1To1() * maxX;
@@ -113,16 +138,14 @@ cc.Class({
     },
     setInputControl: function setInputControl() {
         //
-        console.log('input control');
         // touch input
         this.node.on('mousedown', function (event) {
-            //this.node调用的是节点上才有用
+            //this.node调用的是节点上才有用?
             console.log('Mouse down');
             this.startTime = new Date().getTime();
         }, this);
 
         this.node.on('mouseup', function (event) {
-            console.log('mouseup');
             var lastTime = (new Date().getTime() - this.startTime) / 1000;
             console.log(lastTime);
             this.jump(lastTime);
