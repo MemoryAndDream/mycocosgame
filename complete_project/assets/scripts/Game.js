@@ -110,7 +110,7 @@ cc.Class({
         // 每帧更新计时器，超过限度还没有生成新的星星
         // 就会调用游戏失败逻辑
         if (this.timer > this.starDuration) {
-            this.gameOver();
+           // this.gameOver();
             return;
         }
         this.timer += dt;
@@ -129,8 +129,9 @@ cc.Class({
         cc.director.loadScene('game');
     },
     jump: function (dt){
-        this.test.YSpeed+=dt*this.test.a
-        console.log(this.test.YSpeed)
+        var player = this.player.getComponent('Player')
+        player.YSpeed+=dt*player.a
+        console.log(this.player.YSpeed)
 	},
 	setInputControl: function () {//
         // touch input
