@@ -1,9 +1,3 @@
-"use strict";
-cc._RF.push(module, '6c688v72QdOKamCGCT+xaAd', 'Player');
-// scripts/Player.js
-
-"use strict";
-
 cc.Class({
     extends: cc.Component,
 
@@ -21,24 +15,26 @@ cc.Class({
             default: null,
             url: cc.AudioClip
         },
-        YSpeed: 20,
-        g: 50,
-        a: 50
+        YSpeed : 20,
+		g:50,
+		a:50,
     },
 
-    playJumpSound: function playJumpSound() {
+
+
+    playJumpSound: function () {
         // 调用声音引擎播放声音
         cc.audioEngine.playEffect(this.jumpAudio, false);
     },
 
-    setInputControl: function setInputControl() {
+    setInputControl: function () {
         var self = this;
         //add keyboard input listener to jump, turnLeft and turnRight
         cc.eventManager.addListener({
             event: cc.EventListener.KEYBOARD,
             // set a flag when key pressed
-            onKeyPressed: function onKeyPressed(keyCode, event) {
-                switch (keyCode) {
+            onKeyPressed: function(keyCode, event) {
+                switch(keyCode) {
                     case cc.KEY.a:
                         self.accLeft = true;
                         self.accRight = false;
@@ -50,8 +46,8 @@ cc.Class({
                 }
             },
             // unset a flag when key released
-            onKeyReleased: function onKeyReleased(keyCode, event) {
-                switch (keyCode) {
+            onKeyReleased: function(keyCode, event) {
+                switch(keyCode) {
                     case cc.KEY.a:
                         self.accLeft = false;
                         break;
@@ -64,7 +60,8 @@ cc.Class({
     },
 
     // use this for initialization
-    onLoad: function onLoad() {
+    onLoad: function () {
+
 
         // 加速度方向开关
         this.accLeft = false;
@@ -80,11 +77,11 @@ cc.Class({
         manager.enabledDebugDraw = true;
     },
 
-    onCollisionEnter: function onCollisionEnter(other, self) {
-        this.YSpeed = -this.YSpeed;
-    },
+      onCollisionEnter: function (other, self) {
+	this.YSpeed= -this.YSpeed
+},
     // called every frame
-    update: function update(dt) {
+    update: function (dt) {
         // 根据当前加速度方向每帧更新速度
         if (this.accLeft) {
             this.xSpeed -= this.accel * dt;
@@ -92,23 +89,20 @@ cc.Class({
             this.xSpeed += this.accel * dt;
         }
         // 限制主角的速度不能超过最大值
-        if (Math.abs(this.xSpeed) > this.maxMoveSpeed) {
+        if ( Math.abs(this.xSpeed) > this.maxMoveSpeed ) {
             // if speed reach limit, use max speed with current direction
             this.xSpeed = this.maxMoveSpeed * this.xSpeed / Math.abs(this.xSpeed);
         }
 
         // 根据当前速度更新主角的位置
         this.node.x += this.xSpeed * dt;
-        this.fall(dt);
+        this.fall(dt)
     },
 
-    fall: function fall(dt) {
-        if (this.node.getPosition.Y > -120) {
-            this.YSpeed -= this.g * dt;
-        }
-        var action = cc.moveBy(dt, cc.p(0, this.YSpeed * dt));
-        this.node.runAction(action);
-    }
-});
+    fall: function (dt){
+	this.YSpeed-= this.g*dt;
+	var action = cc.moveBy(dt, cc.p(0, this.YSpeed*dt));
+	this.node.runAction(action);
 
-cc._RF.pop();
+	},
+});

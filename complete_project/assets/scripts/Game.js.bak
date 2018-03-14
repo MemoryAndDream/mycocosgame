@@ -1,9 +1,14 @@
+var Test = require("test");
 cc.Class({
     extends: cc.Component,
 
     properties: {
         // 这个属性引用了星星预制资源
         starPrefab: {
+            default: null,
+            type: cc.Prefab
+        },
+        testPrefab: {
             default: null,
             type: cc.Prefab
         },
@@ -20,6 +25,12 @@ cc.Class({
             default: null,
             type: cc.Node
         },
+        // player 节点，用于获取主角弹跳的高度，和控制主角行动开关
+        test: {
+            default: null,
+            type: Test
+        },
+
         // score label 的引用
         scoreDisplay: {
             default: null,
@@ -29,7 +40,9 @@ cc.Class({
         scoreAudio: {
             default: null,
             url: cc.AudioClip
-        }
+        },
+		far_bg:[cc.Node],  
+        far_speed:0.2,  
     },
 
     // use this for initialization
@@ -41,10 +54,37 @@ cc.Class({
         this.starDuration = 0;
         // 生成一个新的星星
         this.spawnNewStar();
+        this.spawnNewTestPrefeb();
         // 初始化计分
         this.score = 0;
-		cc.director.getPhysicsManager().enabled = true;
+        this.setInputControl();
+		this.fixBgPos(this.far_bg[0],this.far_bg[1]);  
+        
+		
     },
+		fixBgPos:function(bg1,bg2){  
+       bg1.x = 0;  
+       //利用前一张图片的边框大小设置下一张图片的位置  
+       var bg1BoundingBox = bg1.getBoundingBox();  
+       bg2.setPosition(bg1BoundingBox.xMax,bg1BoundingBox.yMin)  
+   },  
+
+   bgMove:function(bgList,speed){  
+       for(var index = 0; index < bgList.length; index++){  
+           var element = bgList[index];  
+           element.x -= speed;  
+       },
+	//检查是否要重置位置  
+    checkBgReset:function(bgList){  
+        var winSize = cc.director.getWinSize();  
+        var first_xMax = bgList[0].getBoundingBox().xMax;  
+        if(first_xMax<=0){  
+            var preFirstBg = bgList.shift();  
+            bgList.push(preFirstBg);  
+            var curFirstBg = bgList[0];  
+            preFirstBg.x = curFirstBg.getBoundingBox().xMax;  
+        }  
+    }  
 
     spawnNewStar: function() {
         // 使用给定的模板在场景中生成一个新节点
@@ -61,9 +101,29 @@ cc.Class({
     },
 
     getNewStarPosition: function () {
+       
         var randX = 0;
         // 根据地平面位置和主角跳跃高度，随机得到一个星星的 y 坐标
         var randY = this.groundY + cc.random0To1() * this.player.getComponent('Player').jumpHeight + 50;
+        // 根据屏幕宽度，随机得到一个星星 x 坐标
+        var maxX = this.node.width/2;
+        randX = cc.randomMinus1To1() * maxX;
+        // 返回星星坐标
+        return cc.p(randX, randY);
+    },
+    spawnNewTestPrefeb: function() {
+        console.log('testPrefeb')
+        // 使用给定的模板在场景中生成一个新节点
+        var newTestPrefab = cc.instantiate(this.testPrefab);
+        // 将新增的节点添加到 Canvas 节点下面
+        this.node.addChild(newTestPrefab);
+        // 为星星设置一个随机位置
+        newTestPrefab.setPosition(this.getNewTestPrefebPosition());
+    },
+    getNewTestPrefebPosition: function () {
+        var randX = 0;
+        // 根据地平面位置和主角跳跃高度，随机得到一个星星的 y 坐标
+        var randY = this.groundY + cc.random0To1() * this.player.getComponent('Player').jumpHeight + 20;
         // 根据屏幕宽度，随机得到一个星星 x 坐标
         var maxX = this.node.width/2;
         randX = cc.randomMinus1To1() * maxX;
@@ -76,10 +136,13 @@ cc.Class({
         // 每帧更新计时器，超过限度还没有生成新的星星
         // 就会调用游戏失败逻辑
         if (this.timer > this.starDuration) {
-            this.gameOver();
+           // this.gameOver();
             return;
         }
         this.timer += dt;
+		//移动背景
+		this.bgMove(this.far_bg,this.far_speed);  
+        this.checkBgReset(this.far_bg);  
     },
 
     gainScore: function () {
@@ -93,5 +156,22 @@ cc.Class({
     gameOver: function () {
         this.player.stopAllActions(); //停止 player 节点的跳跃动作
         cc.director.loadScene('game');
-    }
+    },
+    jump: function (dt){
+        var player = this.player.getComponent('Player')
+        player.YSpeed+=dt*player.a
+        console.log(this.player.YSpeed)
+	},
+	setInputControl: function () {//
+        // touch input
+        this.node.on('mousedown', function (event) {//this.node调用的是节点上才有用?
+           console.log('Mouse down');
+		   this.startTime = new Date().getTime()
+        }, this);
+
+		this.node.on('mouseup', function (event) {
+		   var lastTime = (new Date().getTime()-this.startTime)/1000
+		   console.log(lastTime);
+		   this.jump(lastTime)
+        }, this);}
 });

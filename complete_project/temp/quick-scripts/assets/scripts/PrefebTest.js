@@ -43,12 +43,19 @@ cc.Class({
         var manager = cc.director.getCollisionManager();
         manager.enabled = true;
         manager.enabledDebugDraw = true;
+        this.moveLeftAndRight();
     },
-    start: function start() {}
-}
+    start: function start() {},
+    update: function update(dt) {},
 
-// update (dt) {},
-);
+
+    moveLeftAndRight: function moveLeftAndRight() {
+        var moveLeft = cc.moveBy(2, cc.p(-300, 0)).easing(cc.easeCubicActionOut());
+        var moveRight = cc.moveBy(2, cc.p(300, 0)).easing(cc.easeCubicActionOut());
+        return cc.repeatForever(cc.sequence(moveLeft, moveRight));
+    }
+
+});
 
 cc._RF.pop();
         }

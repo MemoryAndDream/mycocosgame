@@ -100,9 +100,13 @@ cc.Class({
     },
 
     fall: function (dt){
-	this.YSpeed-= this.g*dt;
+		if (this.node.getPosition.Y>-120)
+		{
+	this.YSpeed-= this.g*dt;}
 	var action = cc.moveBy(dt, cc.p(0, this.YSpeed*dt));
 	this.node.runAction(action);
+		}
+}
 
-	},
-});
+
+);

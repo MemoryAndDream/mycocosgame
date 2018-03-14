@@ -52,7 +52,7 @@ cc.Class({
     moveLeftAndRight:function(){
         var moveLeft = cc.moveBy(2, cc.p(-300,0)).easing(cc.easeCubicActionOut());
         var moveRight = cc.moveBy(2, cc.p(300,0)).easing(cc.easeCubicActionOut());
-        return cc.repeatForever(cc.sequence(moveLeft, moveRight, callback));
+        return cc.repeatForever(cc.sequence(moveLeft, moveRight));
 
     },
 

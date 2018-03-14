@@ -40,7 +40,9 @@ cc.Class({
         scoreAudio: {
             default: null,
             url: cc.AudioClip
-        }
+        },
+		far_bg:[cc.Node],  
+        far_speed:0.2,  
     },
 
     // use this for initialization
@@ -56,9 +58,34 @@ cc.Class({
         // 初始化计分
         this.score = 0;
         this.setInputControl();
+		this.fixBgPos(this.far_bg[0],this.far_bg[1]);  
         
 		
     },
+    fixBgPos:function(bg1,bg2){
+       bg1.x = 0;  
+       //利用前一张图片的边框大小设置下一张图片的位置  
+       var bg1BoundingBox = bg1.getBoundingBox();  
+       bg2.setPosition(bg1BoundingBox.xMax,bg1BoundingBox.yMin)  
+   },  
+
+   bgMove:function(bgList,speed){  
+       for(var index = 0; index < bgList.length; index++){  
+           var element = bgList[index];  
+           element.x -= speed;  
+       }},
+	//检查是否要重置位置  
+    checkBgReset:function(bgList){  
+        var winSize = cc.director.getWinSize();  
+        var first_xMax = bgList[0].getBoundingBox().xMax;
+        if(first_xMax<=0){
+            console.log('xMax<0')
+            var preFirstBg = bgList.shift();  
+            bgList.push(preFirstBg);  
+            var curFirstBg = bgList[0];  
+            preFirstBg.x = curFirstBg.getBoundingBox().xMax;  
+        }  
+    } , 
 
     spawnNewStar: function() {
         // 使用给定的模板在场景中生成一个新节点
@@ -111,9 +138,12 @@ cc.Class({
         // 就会调用游戏失败逻辑
         if (this.timer > this.starDuration) {
            // this.gameOver();
-            return;
+           // return;
         }
         this.timer += dt;
+		//移动背景
+		this.bgMove(this.far_bg,this.far_speed);  
+        this.checkBgReset(this.far_bg);  
     },
 
     gainScore: function () {
@@ -131,7 +161,7 @@ cc.Class({
     jump: function (dt){
         var player = this.player.getComponent('Player')
         player.YSpeed+=dt*player.a
-        console.log(this.player.YSpeed)
+        console.log(player.YSpeed)
 	},
 	setInputControl: function () {//
         // touch input

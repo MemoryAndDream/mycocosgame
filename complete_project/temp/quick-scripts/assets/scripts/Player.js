@@ -2,7 +2,7 @@
 cc._RF.push(module, '6c688v72QdOKamCGCT+xaAd', 'Player', __filename);
 // scripts/Player.js
 
-'use strict';
+"use strict";
 
 cc.Class({
     extends: cc.Component,
@@ -20,18 +20,10 @@ cc.Class({
         jumpAudio: {
             default: null,
             url: cc.AudioClip
-        }
-    },
-
-    setJumpAction: function setJumpAction() {
-        // 跳跃上升
-        var jumpUp = cc.moveBy(this.jumpDuration, cc.p(0, this.jumpHeight)).easing(cc.easeCubicActionOut());
-        // 下落
-        var jumpDown = cc.moveBy(this.jumpDuration, cc.p(0, -this.jumpHeight)).easing(cc.easeCubicActionIn());
-        // 添加一个回调函数，用于在动作结束时调用我们定义的其他方法
-        var callback = cc.callFunc(this.playJumpSound, this);
-        // 不断重复，而且每次完成落地动作后调用回调来播放声音
-        return cc.repeatForever(cc.sequence(jumpUp, jumpDown, callback));
+        },
+        YSpeed: 20,
+        g: 50,
+        a: 50
     },
 
     playJumpSound: function playJumpSound() {
@@ -73,9 +65,6 @@ cc.Class({
 
     // use this for initialization
     onLoad: function onLoad() {
-        // 初始化跳跃动作
-        this.jumpAction = this.setJumpAction();
-        this.node.runAction(this.jumpAction);
 
         // 加速度方向开关
         this.accLeft = false;
@@ -92,26 +81,7 @@ cc.Class({
     },
 
     onCollisionEnter: function onCollisionEnter(other, self) {
-        console.log('player pengzuan');
-
-        // 碰撞系统会计算出碰撞组件在世界坐标系下的相关的值，并放到 world 这个属性里面
-        var world = self.world;
-
-        // 碰撞组件的 aabb 碰撞框
-        var aabb = world.aabb;
-
-        // 上一次计算的碰撞组件的 aabb 碰撞框
-        var preAabb = world.preAabb;
-
-        // 碰撞框的世界矩阵
-        var t = world.transform;
-
-        // 以下属性为圆形碰撞组件特有属性
-        var r = world.radius;
-        var p = world.position;
-
-        // 以下属性为 矩形 和 多边形 碰撞组件特有属性
-        var ps = world.points;
+        this.YSpeed = -this.YSpeed;
     },
     // called every frame
     update: function update(dt) {
@@ -129,6 +99,15 @@ cc.Class({
 
         // 根据当前速度更新主角的位置
         this.node.x += this.xSpeed * dt;
+        this.fall(dt);
+    },
+
+    fall: function fall(dt) {
+        if (this.node.getPosition.Y > -120) {
+            this.YSpeed -= this.g * dt;
+        }
+        var action = cc.moveBy(dt, cc.p(0, this.YSpeed * dt));
+        this.node.runAction(action);
     }
 });
 

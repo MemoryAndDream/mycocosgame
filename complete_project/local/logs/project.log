@@ -1,53 +1,89 @@
-2018-03-13T01:22:45.098Z - normal: Load ~/.CocosCreator/settings.json
-2018-03-13T01:22:45.114Z - normal: checking language setting...
-2018-03-13T01:22:45.114Z - normal: Language: zh
-2018-03-13T01:22:46.878Z - success: protocol editor-framework registered
-2018-03-13T01:22:46.878Z - success: protocol app registered
-2018-03-13T01:22:46.878Z - success: protocol theme registered
-2018-03-13T01:22:46.878Z - success: protocol packages registered
-2018-03-13T01:22:46.878Z - success: protocol unpack registerred
-2018-03-13T01:22:46.878Z - success: protocol disable-commonjs registerred
-2018-03-13T01:22:47.152Z - normal: connected!
-2018-03-13T01:22:47.163Z - normal: Check project D:\github\mycocosgame\complete_project
-2018-03-13T01:22:47.188Z - normal: Initializing Cocos2d
-2018-03-13T01:22:47.373Z - normal: Initializing Asset Database
-2018-03-13T01:22:47.404Z - success: protocol uuid registerred
-2018-03-13T01:22:47.404Z - success: protocol db registerred
-2018-03-13T01:22:47.404Z - success: protocol thumbnail registerred
-2018-03-13T01:22:47.404Z - normal: Loading editor/builtin packages
-2018-03-13T01:22:47.431Z - success: anysdk loaded
-2018-03-13T01:22:47.579Z - success: assets loaded
-2018-03-13T01:22:47.579Z - success: builder loaded
-2018-03-13T01:22:47.579Z - success: cocos-analytics loaded
-2018-03-13T01:22:47.579Z - success: console loaded
-2018-03-13T01:22:47.579Z - success: hierarchy loaded
-2018-03-13T01:22:47.579Z - success: inspector loaded
-2018-03-13T01:22:47.594Z - success: keystore loaded
-2018-03-13T01:22:47.594Z - success: node-library loaded
-2018-03-13T01:22:47.594Z - success: package-asset loaded
-2018-03-13T01:22:47.594Z - success: preferences loaded
-2018-03-13T01:22:47.594Z - success: project-exporter loaded
-2018-03-13T01:22:47.610Z - success: project-importer loaded
-2018-03-13T01:22:47.610Z - success: project-settings loaded
-2018-03-13T01:22:47.610Z - success: ui-kit loaded
-2018-03-13T01:22:47.610Z - success: ui-grid loaded
-2018-03-13T01:22:47.610Z - success: scene loaded
-2018-03-13T01:22:47.626Z - success: sprite-editor loaded
-2018-03-13T01:22:47.626Z - success: store loaded
-2018-03-13T01:22:47.626Z - success: timeline loaded
-2018-03-13T01:22:47.626Z - normal: Loading builtin packages
-2018-03-13T01:22:47.626Z - success: asset-db-debugger loaded
-2018-03-13T01:22:47.626Z - success: code-editor loaded
-2018-03-13T01:22:47.626Z - success: color-picker loaded
-2018-03-13T01:22:47.626Z - success: package-manager loaded
-2018-03-13T01:22:47.641Z - success: sdkbox loaded
-2018-03-13T01:22:47.641Z - success: tester loaded
-2018-03-13T01:22:47.641Z - success: ui-kit-preview-extra loaded
-2018-03-13T01:22:47.641Z - success: ui-kit-preview loaded
-2018-03-13T01:22:47.641Z - success: ui-tree loaded
-2018-03-13T01:22:48.758Z - normal: Initializing project D:\github\mycocosgame\complete_project
-2018-03-13T01:22:48.761Z - normal: Loading packages
-2018-03-13T01:22:48.765Z - normal: Watching packages
-2018-03-13T01:22:48.777Z - normal: Run Application
-2018-03-13T01:22:49.171Z - success: preview server running at http://localhost:7456
-2018-03-13T01:22:53.457Z - normal: 1.8.1
+2018-03-14T06:46:18.576Z - normal: Load ~/.CocosCreator/settings.json
+2018-03-14T06:46:18.583Z - normal: checking language setting...
+2018-03-14T06:46:18.584Z - normal: Language: zh
+2018-03-14T06:46:21.364Z - success: protocol editor-framework registered
+2018-03-14T06:46:21.364Z - success: protocol app registered
+2018-03-14T06:46:21.364Z - success: protocol theme registered
+2018-03-14T06:46:21.364Z - success: protocol packages registered
+2018-03-14T06:46:21.364Z - success: protocol unpack registerred
+2018-03-14T06:46:21.364Z - success: protocol disable-commonjs registerred
+2018-03-14T06:46:21.576Z - normal: connected!
+2018-03-14T06:46:21.579Z - normal: Check project D:\用户目录\我的文档\GitHub\mycocosgame\complete_project
+2018-03-14T06:46:21.581Z - normal: Initializing Cocos2d
+2018-03-14T06:46:21.976Z - normal: Initializing Asset Database
+2018-03-14T06:46:22.014Z - success: protocol uuid registerred
+2018-03-14T06:46:22.014Z - success: protocol db registerred
+2018-03-14T06:46:22.014Z - success: protocol thumbnail registerred
+2018-03-14T06:46:22.014Z - normal: Loading editor/builtin packages
+2018-03-14T06:46:22.137Z - success: anysdk loaded
+2018-03-14T06:46:22.281Z - success: assets loaded
+2018-03-14T06:46:22.285Z - success: builder loaded
+2018-03-14T06:46:22.300Z - success: cocos-analytics loaded
+2018-03-14T06:46:22.305Z - success: console loaded
+2018-03-14T06:46:22.311Z - success: hierarchy loaded
+2018-03-14T06:46:22.344Z - success: inspector loaded
+2018-03-14T06:46:22.345Z - success: keystore loaded
+2018-03-14T06:46:22.348Z - success: node-library loaded
+2018-03-14T06:46:22.382Z - success: package-asset loaded
+2018-03-14T06:46:22.439Z - success: preferences loaded
+2018-03-14T06:46:22.462Z - success: project-exporter loaded
+2018-03-14T06:46:22.498Z - success: project-importer loaded
+2018-03-14T06:46:22.500Z - success: project-settings loaded
+2018-03-14T06:46:22.513Z - success: ui-kit loaded
+2018-03-14T06:46:22.515Z - success: ui-grid loaded
+2018-03-14T06:46:22.525Z - success: scene loaded
+2018-03-14T06:46:22.534Z - success: sprite-editor loaded
+2018-03-14T06:46:22.539Z - success: store loaded
+2018-03-14T06:46:22.555Z - success: timeline loaded
+2018-03-14T06:46:22.555Z - normal: Loading builtin packages
+2018-03-14T06:46:22.557Z - success: asset-db-debugger loaded
+2018-03-14T06:46:22.558Z - success: code-editor loaded
+2018-03-14T06:46:22.562Z - success: color-picker loaded
+2018-03-14T06:46:22.568Z - success: package-manager loaded
+2018-03-14T06:46:22.584Z - success: sdkbox loaded
+2018-03-14T06:46:22.590Z - success: tester loaded
+2018-03-14T06:46:22.594Z - success: ui-kit-preview-extra loaded
+2018-03-14T06:46:22.600Z - success: ui-kit-preview loaded
+2018-03-14T06:46:22.610Z - success: ui-tree loaded
+2018-03-14T06:46:24.255Z - normal: Initializing project D:\用户目录\我的文档\GitHub\mycocosgame\complete_project
+2018-03-14T06:46:24.260Z - normal: Loading packages
+2018-03-14T06:46:24.264Z - normal: Watching packages
+2018-03-14T06:46:24.275Z - normal: Run Application
+2018-03-14T06:46:24.825Z - success: preview server running at http://localhost:7456
+2018-03-14T06:46:31.697Z - normal: 1.8.1
+2018-03-14T09:08:50.344Z - failed: [db-task][sync-changes] Failed to import asset D:\用户目录\我的文档\GitHub\mycocosgame\complete_project\assets\scripts\Game.js, message: Compile error: SyntaxError: D:\用户目录\我的文档\GitHub\mycocosgame\complete_project\assets\scripts\Game.js: Unexpected token (76:8)
+  74 |            var element = bgList[index];  
+  75 |            element.x -= speed;  
+> 76 |        },
+     |         ^
+  77 | 	//检查是否要重置位置  
+  78 |     checkBgReset:function(bgList){  
+  79 |         var winSize = cc.director.getWinSize();  
+    at Parser.pp$5.raise (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:4454:13)
+    at Parser.pp.unexpected (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:1761:8)
+    at Parser.pp$3.parseExprAtom (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3750:12)
+    at Parser.pp$3.parseExprSubscripts (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3494:19)
+    at Parser.pp$3.parseMaybeUnary (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3474:19)
+    at Parser.pp$3.parseExprOps (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3404:19)
+    at Parser.pp$3.parseMaybeConditional (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3381:19)
+    at Parser.pp$3.parseMaybeAssign (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3344:19)
+    at Parser.pp$3.parseExpression (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3306:19)
+    at Parser.pp$1.parseStatement (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:1906:19)
+2018-03-14T09:09:07.510Z - failed: [db-task][sync-changes] Failed to import asset D:\用户目录\我的文档\GitHub\mycocosgame\complete_project\assets\scripts\Game.js, message: Compile error: SyntaxError: D:\用户目录\我的文档\GitHub\mycocosgame\complete_project\assets\scripts\Game.js: Unexpected token (76:8)
+  74 |            var element = bgList[index];  
+  75 |            element.x -= speed;  
+> 76 |        },
+     |         ^
+  77 | 	//检查是否要重置位置  
+  78 |     checkBgReset:function(bgList){  
+  79 |         var winSize = cc.director.getWinSize();  
+    at Parser.pp$5.raise (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:4454:13)
+    at Parser.pp.unexpected (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:1761:8)
+    at Parser.pp$3.parseExprAtom (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3750:12)
+    at Parser.pp$3.parseExprSubscripts (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3494:19)
+    at Parser.pp$3.parseMaybeUnary (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3474:19)
+    at Parser.pp$3.parseExprOps (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3404:19)
+    at Parser.pp$3.parseMaybeConditional (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3381:19)
+    at Parser.pp$3.parseMaybeAssign (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3344:19)
+    at Parser.pp$3.parseExpression (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3306:19)
+    at Parser.pp$1.parseStatement (D:\software\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:1906:19)
