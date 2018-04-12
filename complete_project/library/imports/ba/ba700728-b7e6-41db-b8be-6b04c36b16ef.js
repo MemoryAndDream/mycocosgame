@@ -31,7 +31,7 @@ cc.Class({
         manager.enabled = true;
         manager.enabledDrawBoundingBox = true;
         manager.enabledDebugDraw = true;
-        // ��ʼ�������������
+        // ��ʼ������������ￄ1�7
     },
     start: function start() {},
     update: function update(dt) {
@@ -39,13 +39,13 @@ cc.Class({
     },
 
     onCollisionEnter: function onCollisionEnter(other, self) {
-        // console.log('on collision enter');//����Ҫ�������������
+        // console.log('on collision enter');//����Ҫ������������ￄ1�7
         //   console.log(this.node.getPosition().x)
         this.YSpeed = -this.YSpeed;
-        // ��ײϵͳ��������ײ�������������ϵ�µ���ص�ֵ�����ŵ� world �����������
+        // ��ײϵͳ��������ײ�������������ϵ�µ���ص�ֵ�����ŵ� world ����������ￄ1�7
         var world = self.world;
 
-        // ��ײ����� aabb ��ײ��
+        // ��ײ����ￄ1�7 aabb ��ײ��
         var aabb = world.aabb;
 
         // ��һ�μ������ײ����� aabb ��ײ��
@@ -54,11 +54,11 @@ cc.Class({
         // ��ײ����������
         var t = world.transform;
 
-        // ��������ΪԲ����ײ�����������
+        // ��������ΪԲ����ײ����������ￄ1�7
         var r = world.radius;
         var p = world.position;
 
-        // ��������Ϊ ���� �� ����� ��ײ�����������
+        // ��������Ϊ ���� �� ����ￄ1�7 ��ײ����������ￄ1�7
         var ps = world.points;
     },
 

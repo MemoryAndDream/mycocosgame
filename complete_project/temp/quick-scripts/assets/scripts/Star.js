@@ -14,7 +14,8 @@ cc.Class({
         game: {
             default: null,
             serializable: false
-        }
+        },
+        XSpeed: 2
     },
 
     // use this for initialization
@@ -45,10 +46,17 @@ cc.Class({
             this.onPicked();
             return;
         }
+        if (this.node.getPosition().x < -cc.winSize.width / 2) {
+            console.log("new star");
+            // 调用收集行为
+            this.game.spawnNewStar();
+            this.node.destroy();
+        }
         // 根据 Game 脚本中的计时器更新星星的透明度
         var opacityRatio = 1 - this.game.timer / this.game.starDuration;
         var minOpacity = 50;
-        this.node.opacity = minOpacity + Math.floor(opacityRatio * (255 - minOpacity));
+        // this.node.opacity = minOpacity + Math.floor(opacityRatio * (255 - minOpacity));
+        this.node.x -= this.XSpeed * dt;
     }
 });
 

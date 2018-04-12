@@ -43,7 +43,7 @@ cc.Class({
         var manager = cc.director.getCollisionManager();
         manager.enabled = true;
         manager.enabledDebugDraw = true;
-        this.moveLeftAndRight();
+        this.node.runAction(this.moveLeftAndRight());
     },
     start: function start() {},
     update: function update(dt) {},
