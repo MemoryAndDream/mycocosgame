@@ -3,7 +3,7 @@ cc.Class({
 
     properties: {
         // 星星和主角之间的距离小于这个数值时，就会完成收集
-        pickRadius: 0,
+        pickRadius: 30,
         // 暂存 Game 对象的引用
         game: {
             default: null,
@@ -27,12 +27,10 @@ cc.Class({
     },
 
     onPicked: function() {
-        // 当星星被收集时，调用 Game 脚本中的接口，生成一个新的星星
-        this.game.spawnNewStar();
+      
         // 调用 Game 脚本的得分方法
-        this.game.gainScore();
-        // 然后销毁当前星星节点
-        this.node.destroy();
+        this.game.gameOver()
+      
     },
 
     // called every frame
@@ -44,14 +42,12 @@ cc.Class({
             return;
         }
         if (this.node.getPosition().x < -cc.winSize.width/2) {
-            console.log("new star")
+            console.log("new fire")
             // 调用收集行为
-            this.game.spawnNewStar();
+            this.game.spawnNewFire();
             this.node.destroy();
         }
-        // 根据 Game 脚本中的计时器更新星星的透明度
-        var opacityRatio = 1 - this.game.timer/this.game.starDuration;
-        var minOpacity = 50;
+      
        // this.node.opacity = minOpacity + Math.floor(opacityRatio * (255 - minOpacity));
        this.node.x -= this.XSpeed*dt;
   

@@ -17,7 +17,8 @@ cc.Class({
         },
         YSpeed : 20,
 		g:50,
-		a:50,
+        a:50,
+        fall_state:true
     },
 
 
@@ -61,7 +62,10 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-
+        
+        // 设置循环模式为 Loop
+       // animState.wrapMode = cc.WrapMode.Loop;
+       // console.log("play")
 
         // 加速度方向开关
         this.accLeft = false;
@@ -77,8 +81,11 @@ cc.Class({
         manager.enabledDebugDraw = true;
     },
 
-      onCollisionEnter: function (other, self) {
-	this.YSpeed= -this.YSpeed
+    onCollisionEnter: function (other, self) {//同时有2个碰撞就会掉下去
+    this.YSpeed= 0
+    var anim = this.getComponent(cc.Animation);
+    var animState = anim.play("small");
+    this.fall_state=false
 },
     // called every frame
     update: function (dt) {
@@ -96,11 +103,13 @@ cc.Class({
 
         // 根据当前速度更新主角的位置
         this.node.x += this.xSpeed * dt;
+
         this.fall(dt)
     },
 
     fall: function (dt){
-		if (this.node.getPosition.Y>-120)
+   
+		if (this.node.getPosition().y>-120 && this.fall_state)
 		{
 	this.YSpeed-= this.g*dt;}
 	var action = cc.moveBy(dt, cc.p(0, this.YSpeed*dt));
