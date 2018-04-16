@@ -72,16 +72,19 @@
       },
       {
         "__id__": 18
+      },
+      {
+        "__id__": 20
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 20
+        "__id__": 23
       },
       {
-        "__id__": 21
+        "__id__": 24
       }
     ],
     "_prefab": null,
@@ -163,8 +166,8 @@
     "_scaleY": 2,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -478,
-      "y": -379
+      "x": -480,
+      "y": -380
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -530,8 +533,8 @@
     "_scaleY": 1.04,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": -91
+      "x": -271,
+      "y": -87
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -574,7 +577,7 @@
       "__id__": 13
     },
     "_enabled": true,
-    "jumpHeight": 150,
+    "jumpHeight": 300,
     "jumpDuration": 0.3,
     "maxMoveSpeed": 400,
     "accel": 350,
@@ -582,8 +585,8 @@
       "__uuid__": "eb514f5f-4725-41b8-9568-2643e4af2871"
     },
     "YSpeed": 0,
-    "g": 600,
-    "a": 800,
+    "g": 800,
+    "a": 1000,
     "fall_state": true
   },
   {
@@ -699,6 +702,88 @@
     "_N$overflow": 0
   },
   {
+    "__type__": "cc.Node",
+    "_name": "music",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 2
+    },
+    "_children": [],
+    "_tag": -1,
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 21
+      },
+      {
+        "__id__": 22
+      }
+    ],
+    "_prefab": null,
+    "_id": "5fjS8nZHhNo5rXXqfZQTDZ",
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_opacityModifyRGB": false,
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.AudioSource",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 20
+    },
+    "_enabled": true,
+    "_clip": {
+      "__uuid__": "5bfe286c-87be-4c6e-83a0-31806c9a725b"
+    },
+    "_volume": 1,
+    "_mute": false,
+    "_loop": true,
+    "playOnLoad": true,
+    "preload": false
+  },
+  {
+    "__type__": "981deg4VYJKir3+kQJRXVoG",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 20
+    },
+    "_enabled": true,
+    "audioSource": null
+  },
+  {
     "__type__": "cc.Canvas",
     "_name": "",
     "_objFlags": 0,
@@ -759,7 +844,8 @@
         "__id__": 10
       }
     ],
-    "far_speed": 200,
-    "max_powerup_time": 1
+    "fire_num": 2,
+    "far_speed": 300,
+    "max_powerup_time": 2
   }
 ]

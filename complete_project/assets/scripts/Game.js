@@ -43,6 +43,7 @@ cc.Class({
         },
         far_bg:[cc.Node],  
         far_bg2:[cc.Node],  
+        fire_num:2,
         far_speed:0.2,  
         max_powerup_time:3,
     },
@@ -57,8 +58,9 @@ cc.Class({
         // 生成一个新的星星
         this.spawnNewStar();
 //生成一个火
-        this.spawnNewFire();
 
+        this.spawnNewFire();
+    
         // 初始化计分
         this.score = 0;
         this.setInputControl();
@@ -123,8 +125,9 @@ cc.Class({
         // 返回星星坐标
         return cc.p(maxX, randY);
     },
-    spawnNewFire: function() {
+    spawnNewFire: function() { //火焰难度要不断提高
         // 使用给定的模板在场景中生成一个新节点
+        for(i=0;i<this.fire_num;i++){
         var newFire = cc.instantiate(this.firePrefab);
         // 将新增的节点添加到 Canvas 节点下面
         this.node.addChild(newFire);
@@ -133,6 +136,7 @@ cc.Class({
         // 将 Game 组件的实例传入星星组件
         newFire.getComponent('Fire').game = this;
         newFire.getComponent('Fire').XSpeed = this.far_speed;
+        }
         // 重置计时器
         this.starDuration = this.minStarDuration + cc.random0To1() * (this.maxStarDuration - this.minStarDuration);
         this.timer = 0;
@@ -141,14 +145,14 @@ cc.Class({
     getNewFirePosition: function () {
        
         var randX = 0;
-        var randY = this.groundY + cc.random0To1() * this.player.getComponent('Player').jumpHeight + 50;
-        // 根据屏幕宽度，随机得到一个星星 x 坐标
-        var maxX = this.node.width/2;
+        var randY = this.groundY + cc.random0To1() * this.player.getComponent('Player').jumpHeight + 30;
+        // 根据屏幕宽度，随机得到一个火 x 坐标
+        var maxX = this.node.width/2+cc.random0To1()*this.node.width/2;
         // 根据地平面位置和主角跳跃高度，随机得到一个火的 y 坐标 但是火不能和星星重叠
         console.log(this.starNow)
         while (cc.pDistance(this.starNow.position, cc.p(maxX, randY))<30){ //这里设置太大会死循环 设置高度150时
             //var randY = this.groundY + cc.random0To1() * this.player.getComponent('Player').jumpHeight + 50;
-           var randY = this.groundY + cc.random0To1() * this.player.getComponent('Player').jumpHeight + 50;
+           var randY = this.groundY + cc.random0To1() * this.player.getComponent('Player').jumpHeight + 30;
         }
 
         //randX = cc.randomMinus1To1() * maxX;

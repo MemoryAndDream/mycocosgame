@@ -66,7 +66,7 @@ cc.Class({
         // 设置循环模式为 Loop
        // animState.wrapMode = cc.WrapMode.Loop;
        // console.log("play")
-
+console.log( this.node.getPosition().y)
         // 加速度方向开关
         this.accLeft = false;
         this.accRight = false;
@@ -107,14 +107,18 @@ cc.Class({
         this.fall(dt)
     },
 
-    fall: function (dt){
+    fall: function (dt){ //穿模应该归0位置
    
-		if (this.node.getPosition().y>-120 && this.fall_state)
+		if (this.node.getPosition().y>-87 && this.fall_state)
 		{
-	this.YSpeed-= this.g*dt;}
+    this.YSpeed-= this.g*dt;}
+    else{
+        this.node.setPosition(cc.v2(this.node.getPosition().x, -87));
+    }
 	var action = cc.moveBy(dt, cc.p(0, this.YSpeed*dt));
 	this.node.runAction(action);
-		}
+        }
+        
 }
 
 

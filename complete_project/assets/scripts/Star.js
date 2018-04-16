@@ -47,12 +47,10 @@ cc.Class({
             console.log("new star")
             // 调用收集行为
             this.game.spawnNewStar();
+            this.game.fire_num = this.game.fire_num+1
             this.node.destroy();
         }
-        // 根据 Game 脚本中的计时器更新星星的透明度
-        var opacityRatio = 1 - this.game.timer/this.game.starDuration;
-        var minOpacity = 50;
-       // this.node.opacity = minOpacity + Math.floor(opacityRatio * (255 - minOpacity));
+       
        this.node.x -= this.XSpeed*dt;
   
     
