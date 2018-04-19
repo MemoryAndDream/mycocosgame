@@ -48,6 +48,7 @@ cc.Class({
             // 调用收集行为
             this.game.spawnNewStar();
             this.game.fire_num = this.game.fire_num+1
+            console.log(this.game.fire_num)
             this.node.destroy();
         }
        

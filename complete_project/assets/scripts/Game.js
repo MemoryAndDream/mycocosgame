@@ -43,7 +43,7 @@ cc.Class({
         },
         far_bg:[cc.Node],  
         far_bg2:[cc.Node],  
-        fire_num:2,
+        fire_num:1,
         far_speed:0.2,  
         max_powerup_time:3,
     },
@@ -125,10 +125,14 @@ cc.Class({
         // 返回星星坐标
         return cc.p(maxX, randY);
     },
-    spawnNewFire: function() { //火焰难度要不断提高
+    spawnNewFire: function() { //火焰难度要不断提高 火焰不能重叠
+        console.log("spawnFire")
+        console.log(this.node.getChildren().length)
         // 使用给定的模板在场景中生成一个新节点
-        for(i=0;i<this.fire_num;i++){
+        for(i=0;i<(this.fire_num+8-this.node.getChildren().length);i++){
         var newFire = cc.instantiate(this.firePrefab);
+        console.log(newFire.name)
+        newFire.name='newFire'
         // 将新增的节点添加到 Canvas 节点下面
         this.node.addChild(newFire);
         // 为星星设置一个随机位置
@@ -182,11 +186,14 @@ cc.Class({
         this.scoreDisplay.string = 'Score: ' + this.score.toString();
         // 播放得分音效
         cc.audioEngine.playEffect(this.scoreAudio, false);
+        if(this.fire_num+8-this.node.getChildren().length>1){
+        this.fire_num-=1;
+        }
     },
 
     gameOver: function () {
         this.player.stopAllActions(); //停止 player 节点的跳跃动作
-        cc.director.loadScene('game');  //这里有bug
+        cc.director.loadScene('homepage');  //这里有bug
     },
     jump: function (dt){
         var player = this.player.getComponent('Player')

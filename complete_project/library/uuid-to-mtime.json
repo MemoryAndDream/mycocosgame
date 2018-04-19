@@ -250,7 +250,7 @@
     "relativePath": "game.fire"
   },
   "51b0ea7f-a166-4130-bf0b-7f70fc60cb1d": {
-    "asset": 1523724008791,
+    "asset": 1524014739811,
     "meta": 1520518328244,
     "relativePath": "scripts"
   },
@@ -419,14 +419,24 @@
     "meta": 1523725029222,
     "relativePath": "scripts\\Player.js"
   },
-  "4e12f2d2-42ed-4bf8-a57a-426c4389abd4": {
-    "asset": 1523841837999,
-    "meta": 1523841842870,
-    "relativePath": "scripts\\Game.js"
-  },
   "4644fd26-d96b-4005-8472-fa99fa74e686": {
-    "asset": 1523842081648,
-    "meta": 1523842083889,
+    "asset": 1523895244494,
+    "meta": 1523895387776,
     "relativePath": "scripts\\Star.js"
+  },
+  "cbec5e24-cb0b-4f1c-82d8-d71c89a64cca": {
+    "asset": 1524098758201,
+    "meta": 1524098758216,
+    "relativePath": "homepage.fire"
+  },
+  "28b8dc47-e5b8-4c86-aa44-b70900593895": {
+    "asset": 1524098496706,
+    "meta": 1524098497574,
+    "relativePath": "scripts\\sceneChange.js"
+  },
+  "4e12f2d2-42ed-4bf8-a57a-426c4389abd4": {
+    "asset": 1524099107538,
+    "meta": 1524099167431,
+    "relativePath": "scripts\\Game.js"
   }
 }

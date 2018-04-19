@@ -82,7 +82,8 @@
         "scene",
         "timeline"
       ]
-    }
+    },
+    "window-1524100244114": {}
   },
   "panels": {
     "project-settings": {
@@ -102,6 +103,18 @@
       "y": -8,
       "width": 1552,
       "height": 840
+    },
+    "package-asset.export": {
+      "x": 560,
+      "y": 140,
+      "width": 420,
+      "height": 545
+    },
+    "builder": {
+      "x": 508,
+      "y": 28,
+      "width": 516,
+      "height": 740
     }
   }
 }
